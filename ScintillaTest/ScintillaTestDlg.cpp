@@ -7,8 +7,8 @@
 #include "ScintillaTest.h"
 #include "ScintillaTestDlg.h"
 #include "afxdialogex.h"
-#include "../include/Scintilla.h"
-#include "../include/SciLexer.h"
+#include "../scintilla/include/Scintilla.h"
+#include "../scintilla/include/SciLexer.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -133,7 +133,7 @@ BOOL CScintillaTestDlg::OnInitDialog()
     m_view->SendMessage(SCI_STYLESETFORE, SCE_C_COMMENTDOC, 0x00008000);//文档注释（/**开头）
 
     m_view->SendMessage(SCI_SETCODEPAGE, SC_CP_UTF8);       //支持UTF8
-    m_view->SendMessage(SCI_STYLESETFONT, STYLE_DEFAULT, (sptr_t)"Consolas");
+    m_view->SendMessage(SCI_STYLESETFONT, STYLE_DEFAULT, (sptr_t)u8"微软雅黑");
     m_view->SendMessage(SCI_STYLESETSIZE, STYLE_DEFAULT, 10);
 
     m_view->SendMessage(SCI_SETTEXT, 0, (LPARAM)u8"测试文本");
